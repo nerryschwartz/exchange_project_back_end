@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.json());
 
 // Define routes here...
+app.use('/api/proposals', proposalsRoute);
 
 app.get('/', (req, res) => {
   res.send('API is running');
