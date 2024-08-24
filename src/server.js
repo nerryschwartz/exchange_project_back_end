@@ -12,21 +12,24 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected...'))
-.catch(err => console.log(err));
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('MongoDB connected...'))
+  .catch((err) => console.log(err));
 
 // Middleware
 app.use(express.json());
 
 // Routes
-const proposalsRoute = require('./routes/proposals')
+const proposalsRoute = require('./routes/proposals');
+
 app.use('/api/proposals', proposalsRoute);
-const usersRoute = require('./routes/users')
-app.use('/api/users', usersRoute)
+const usersRoute = require('./routes/users');
+
+app.use('/api/users', usersRoute);
 
 app.get('/', (req, res) => {
   res.send('API is running');

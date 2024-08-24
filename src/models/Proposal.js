@@ -4,23 +4,23 @@ const ProposalSchema = new mongoose.Schema({
   offeredItems: [
     {
       item: String,
-      quantity: Number
-    }
+      quantity: Number,
+    },
   ],
   desiredItems: [
     {
       item: String,
-      quantity: Number
-    }
+      quantity: Number,
+    },
   ],
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    ref: 'User',
+  },
 });
 
 module.exports = mongoose.model('Proposal', ProposalSchema);
